@@ -1,0 +1,148 @@
+<html lang="en"><head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <meta charset="utf-8">
+  <!-- Compiled and minified CSS -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+  <link rel="stylesheet" href="style.css">
+  <title>Y4E</title>
+</head>
+<body>
+
+  <!-- NAVBAR -->
+  <img id="LogoImg" style="height:45px; position: absolute; top: 5px; left:70px;" src="pic/Y4Elogo.png">
+  <nav class="z-depth-1 white ">
+    <div class="nav-wrapper container">
+      <ul id="nav-mobile" class="right hide-on-med-and-down">
+          <li class="logged-in" style="display: none;">
+            <a href="#Home" class="brown-text" id="homepage">Home</a>
+          </li>
+          <li class="logged-in" style="display: none;">
+            <a href="#" class="brown-text modal-trigger" data-target="modal-account">Account</a>
+          </li>
+          <li class="logged-in" style="display: none;">
+            <a href="yoga.html" class="brown-text" id="Yoga">Yoga</a>
+          </li>
+          <li class="logged-in" style="display: none;">
+            <a href="progress.html" class="brown-text" id="progress">Progress</a>
+          </li>
+          <li class="logged-in" style="display: none;">
+            <a href="#" class="brown-text" id="logout">Logout</a>
+          </li>
+          <li class="logged-out" style="display: none;">
+            <a href="#" class="brown-text modal-trigger" data-target="modal-login">Login</a>
+          </li>
+          <li class="logged-out" style="display: none;">
+            <a href="#" class="brown-text modal-trigger" data-target="modal-signup">Sign up</a>
+          </li>
+      </ul>
+    </div>
+  </nav>
+
+  <!-- SIGN UP MODAL -->
+  <div id="modal-signup" class="modal">
+    <div class="modal-content">
+      <h4>Sign up</h4><br>
+      <form id="signup-form">
+        <div class="input-field">
+          <input type="email" id="signup-email" required="">
+          <label for="signup-email">Email address</label>
+        </div>
+        <div class="input-field">
+          <input type="password" id="signup-password" required="">
+          <label for="signup-password">Password</label>
+        </div>
+        <div class="input-field">
+          <input type="text" id="signup-username" required="">
+          <label for="signup-username">Username</label>
+        </div>
+        <div class="input-field">
+          <input type="text" id="signup-weight" required="">
+          <label for="signup-weight">Weight</label>
+        </div>
+        <button class="btn brown darken-3 z-depth-0">Sign up</button>
+      </form>
+    </div>
+  </div>
+
+  <!-- LOGIN MODAL -->
+  <div id="modal-login" class="modal">
+    <div class="modal-content">
+      <h4>Login</h4><br>
+      <form id="login-form">
+        <div class="input-field">
+          <input type="email" id="login-email" required="">
+          <label for="login-email">Email address</label>
+        </div>
+        <div class="input-field">
+          <input type="password" id="login-password" required="">
+          <label for="login-password">Your password</label>
+        </div>
+        <button class="btn brown darken-3 z-depth-0">Login</button>
+      </form>
+    </div>
+  </div>
+
+  <!-- ACCOUNT MODAL -->
+  <div id="modal-account" class="modal">
+    <div class="modal-content center-align">
+      <h4>Account details</h4><br>
+      <div class="account-details" ></div>
+    </div>
+  </div>
+  
+    <!-- Home Login -->
+  <li class="logged-in" style="display: none;">
+  
+  </div>
+</li>
+
+  <!-- Home Not Login -->
+  <li class="logged-out" style="display: none;">
+  <div class="container" style="margin-top: 40px;">
+    <p>Not Login</p>
+  </div>
+  </li>
+  
+  
+  <script src="firebase-app.js"></script>
+  <script src="firebase-auth.js"></script>
+  <script src="firebase-firestore.js"></script>
+  <script>
+    // Initialize Firebase
+    var config = {
+      apiKey: "AIzaSyBh_vKw1eozno1VVGaedDXgTJhNljWfUvk",
+    authDomain: "yoga-data-51fbc.firebaseapp.com",
+    projectId: "yoga-data-51fbc",
+    storageBucket: "yoga-data-51fbc.appspot.com",
+    messagingSenderId: "661341190469",
+    appId: "1:661341190469:web:d99092212b6e577679e62c",
+    measurementId: "G-GMZ0T8EJ1M"
+    };
+    firebase.initializeApp(config);
+    
+    // make auth and firestore references
+    const auth = firebase.auth();
+    const db = firebase.firestore();
+
+    // update firestore settings
+    db.settings({ timestampsInSnapshots: true });
+  </script>
+  <!-- Compiled and minified CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+
+    <!-- Compiled and minified JavaScript -->
+    <script src="materialize.min.js"></script>
+  <script src="scripts/auth.js"></script>
+  <script src="scripts/index.js"></script>
+  <script src ="sketch.js"></script>
+  <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+
+
+  </script>
+
+
+</body></html>
