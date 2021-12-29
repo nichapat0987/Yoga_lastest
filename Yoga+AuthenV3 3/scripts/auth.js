@@ -17,7 +17,7 @@ auth.onAuthStateChanged(user => {
 firebase.auth().onAuthStateChanged((user) => {
   if (user) {
     // User logged in already or has just logged in.
-    //console.log(user.uid);
+    console.log(user.uid);
     const userxid = {
       userid : user.uid
     }

@@ -86,7 +86,7 @@
   
   <!-- Home Login -->
   <li class="logged-in" style="display: none;">
-  <div class="container" style="margin-top: 40px;">
+  <div class="container" style="margin-top: 40px; width: 100%;">
     <!-- CREATE Exercise MODAL -->
   <div id="modal-create" class="modal">
     <div class="modal-content">
@@ -98,7 +98,7 @@
         </div>
         <div class="input-field">
           <input type="number" id="pcalories" required></input>
-          <label for="pcalories">calories</label>
+          <label for="pcalories">points</label>
         </div>
         <button class="btn yellow darken-2 z-depth-0">Add</button>
       </form>
@@ -123,14 +123,14 @@
         <div id="ranking">
             <p class="flow-text indigo-text text-darken-4">Ranking</p>
                 <p>username:</p><p class="username" id="username" style="position:absolute; top: 241px; left: 500px"></p>
-                <p>burnedcal :</p><div class="total-burnedcal" id="total-burnedcal" style="position:absolute; top: 292px; left: 500px"></div>
+                <p>points :</p><div class="total-burnedcal" id="total-burnedcal" style="position:absolute; top: 292px; left: 500px"></div>
                 <p>weight :</p><div class="weight" id="weight" style="position:absolute; top: 331px; left: 500px"></div>
                 
                 <table class="content-table">
                   <thead>
                     <tr>
                       <th>Username</th>
-                      <th>total calories</th>
+                      <th>total points</th>
                     </tr>
                   </thead>
                   <tbody id="tbody1">
@@ -153,7 +153,7 @@
                   <thead>
                     <tr>
                       <th>Date</th>
-                      <th>calories</th>
+                      <th>points</th>
                     </tr>
                   </thead>
                   <tbody id="tbody2">
@@ -170,50 +170,47 @@
         <div id="select-yoga">
           <!-- yoga Hatha Yoga-->
       <div class="row">
-        <div class="col s12 m4">
+        <div class="col s11 m4">
           <div class="card">
             <div class="card-image">
-              <img src="pic/Hatha.jpeg">
-              <span class="card-title">Hatha Yoga</span>
+              <img src="piccard/hatha-pic.jpeg">
             </div>
             <div class="card-content">
               <p>Hatha yoga is often slower moving than a Vinyasa yoga practice, but it can be challenging, stimulating, or soft, depending on the circumstances.</p>
             </div>
             <div class="card-action">
-              <a href="yogaV2.html" class="brown-text" id="Yoga2">YogaV2</a>
+              <a href="yoga.html" class="brown-text" id="Yoga2">LEARN</a>
             </div>
           </div>
         </div>
       
 
       <!-- yoga Vinyasa Yoga-->
-        <div class="col s12 m4">
+        <div class="col s11 m4">
           <div class="card">
             <div class="card-image">
-              <img src="pic/Hatha.jpeg">
-              <span class="card-title">Vinyasa Yoga</span>
+              <img src="piccard/vinyasa-pic.jpeg">
             </div>
             <div class="card-content">
-              <p>Vinyasa Yoga helps to develop a more balanced body as well as prevent repetitive motion injuries that can happen if you are always doing the same thing every day.</p>
+              <p>Vinyasa Yoga helps to develop a more balanced body as well as prevent repetitive motion injuries that can happen if you are always doing the same thing.</p>
             </div>
             <div class="card-action">
-              <a href="yoga.html" class="brown-text" id="Yoga">Yoga</a>
+              <a href="yoga2.html" class="brown-text" id="Yoga2-2">LEARN</a>
             </div>
           </div>
         </div>
 
       <!-- yoga Iyengar Yoga-->
-        <div class="col s12 m4">
+        <div class="col s11 m4">
           <div class="card">
             <div class="card-image">
-              <img src="pic/Hatha.jpeg">
-              <span class="card-title">Iyengar Yoga</span>
+              <img src="piccard/iyengar-pic.jpeg">
             </div>
             <div class="card-content">
-              <p>Iyengar Yoga is considered to be one of the more traditional types of yoga and it holds tremendous powers to benefit and heal the body.</p>
+              <p>Iyengar is a form of hatha yoga that focuses on proper alignment and precise technique. Through slower movements and an emphasis on quality over quantity.</p>
             </div>
             <div class="card-action">
-              <a href="yoga.html" class="brown-text" id="Yoga">Yoga</a>
+              <a href="yoga3.html" class="brown-text" id="Yoga2-3">LEARN</a>
             </div>
           </div>
         </div>
@@ -309,7 +306,7 @@
   <!-- Table History Exercises -->
   <script>
     function SelectData2 (){
-      db.collection('exercise').doc(userid).collection('round').get().then((snapshot2) => {
+      db.collection('exercise').doc(userid).collection('round').orderBy("daydate","desc").get().then((snapshot2) => {
         snapshot2.docs.forEach(doc => {
           var dday = doc.data().daydate;
           var pcal = doc.data().pcalories;
@@ -389,7 +386,7 @@
               data: {
                   labels: day,
                   datasets: [{
-                      label: 'calories',
+                      label: 'points',
                       data: calo,
                       backgroundColor: 'rgba(232, 182, 13, 0.8)',
                       borderColor: 'rgba(255, 255, 255, 0.2)',

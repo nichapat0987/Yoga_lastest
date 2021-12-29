@@ -7,7 +7,7 @@ let poseLabel = "Do Pose"
 let brain;
 let targeLabel;
 let posesTarget = ['a','b','c']
-let posesArray = ['Mountain', 'Palm Tree','Chair'];
+let posesArray = ['Mountain', 'Half','Bend'];
 var imgArray = new Array()
 var poseImage;
 var posesTargetCount;
@@ -31,11 +31,11 @@ function setup() {
   poseNet.on('pose', gotPoses);
 
   imgArray[0] = new Image();
-  imgArray[0].src = 'hatha/moun-1.jpeg';
+  imgArray[0].src = 'iyengar/mountainf-1.jpeg';
   imgArray[1] = new Image();
-  imgArray[1].src = 'hatha/palm-2.jpeg';
+  imgArray[1].src = 'iyengar/half-2.jpeg';
   imgArray[2] = new Image();
-  imgArray[2].src = 'hatha/chair-3.jpeg';
+  imgArray[2].src = 'iyengar/bend-3.jpeg';
   
 
   poseCounter = 0;
@@ -63,9 +63,9 @@ function setup() {
   }
   brain = ml5.neuralNetwork(options);
   const modelInfo = {
-    model: 'hatha-pose/model-h1.json',
-    metadata: 'hatha-pose/model_meta-h1.json',
-    weights: 'hatha-pose/model.weights-h1.bin',
+    model: 'iyengar-pose/model-i1.json',
+    metadata: 'iyengar-pose/model_meta-i1.json',
+    weights: 'iyengar-pose/model.weights-i1.bin',
   };
   brain.load(modelInfo, brainLoaded);
 }
@@ -163,7 +163,7 @@ function nextPose(){
     }
     localStorage.setItem("AfterBurned", JSON.stringify(burnupdated));
 
-    window.location.href = "http://127.0.0.1:5500/yoga2-2.html";
+    window.location.href = "http://127.0.0.1:5500/yoga3-2.html";
   }else{
     iterationCounter = 0;
     posesTargetCount = posesTargetCount + 1;
@@ -217,10 +217,10 @@ function draw() {
   }
   if (poseLabel == 'b'){
     fill(86,149,232);
-    text("Palm Tree correct!",width/2,height/7);
+    text("half correct!",width/2,height/7);
   }
   if (poseLabel == 'c'){
     fill(245,189,224);
-    text("Chair correct!",width/2,height/7);
+    text("Bend correct!",width/2,height/7);
   }
 }

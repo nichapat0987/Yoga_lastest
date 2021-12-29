@@ -7,7 +7,7 @@ let poseLabel = "Do Pose"
 let brain;
 let targeLabel;
 let posesTarget = ['a','b','c']
-let posesArray = ['Mountain', 'Palm Tree','Chair'];
+let posesArray = ['Raised Hands', 'Prayer','Triangle'];
 var imgArray = new Array()
 var poseImage;
 var posesTargetCount;
@@ -18,7 +18,7 @@ var poseCounter;
 var target;
 var countdown;
 var timeLeft = 650;
-var cal = 0;
+var cal = 15;
 var currentcalArray;
 var currentcal;
 
@@ -31,11 +31,11 @@ function setup() {
   poseNet.on('pose', gotPoses);
 
   imgArray[0] = new Image();
-  imgArray[0].src = 'hatha/moun-1.jpeg';
+  imgArray[0].src = 'hatha/raised-4.jpeg';
   imgArray[1] = new Image();
-  imgArray[1].src = 'hatha/palm-2.jpeg';
+  imgArray[1].src = 'hatha/prayer-5.jpeg';
   imgArray[2] = new Image();
-  imgArray[2].src = 'hatha/chair-3.jpeg';
+  imgArray[2].src = 'hatha/triangle-6.jpeg';
   
 
   poseCounter = 0;
@@ -63,9 +63,9 @@ function setup() {
   }
   brain = ml5.neuralNetwork(options);
   const modelInfo = {
-    model: 'hatha-pose/model-h1.json',
-    metadata: 'hatha-pose/model_meta-h1.json',
-    weights: 'hatha-pose/model.weights-h1.bin',
+    model: 'hatha-pose/model-h2.json',
+    metadata: 'hatha-pose/model_meta-h2.json',
+    weights: 'hatha-pose/model.weights-h2.bin',
   };
   brain.load(modelInfo, brainLoaded);
 }
@@ -150,10 +150,15 @@ function modelLoaded() {
 
 function nextPose(){
   console.log(poseCounter,'poseCounter');
-  cal = cal + 5;
+  cal = cal + 10;
   document.getElementById("calories").textContent = cal + " POINTS";
   if (poseCounter >= 2) {
     document.getElementById("time").textContent = "00:10";
+    
+    const calperround = {
+      calround : cal
+    }
+    localStorage.setItem("Calperround", JSON.stringify(calperround));
 
     currentcal = currentcal + cal;
     console.log('currentcal_update', currentcal);
@@ -163,7 +168,7 @@ function nextPose(){
     }
     localStorage.setItem("AfterBurned", JSON.stringify(burnupdated));
 
-    window.location.href = "http://127.0.0.1:5500/yoga2-2.html";
+    document.getElementById("next").style.display = 'block';
   }else{
     iterationCounter = 0;
     posesTargetCount = posesTargetCount + 1;
@@ -213,14 +218,14 @@ function draw() {
   }
   if (poseLabel == 'a'){
     fill(81,159,96);
-    text("Mountain correct!",width/2,height/7);
+    text("Raised Hands correct!",width/2,height/7);
   }
   if (poseLabel == 'b'){
     fill(86,149,232);
-    text("Palm Tree correct!",width/2,height/7);
+    text("Prayer correct!",width/2,height/7);
   }
   if (poseLabel == 'c'){
     fill(245,189,224);
-    text("Chair correct!",width/2,height/7);
+    text("Triangle correct!",width/2,height/7);
   }
 }
