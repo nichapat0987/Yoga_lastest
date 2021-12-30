@@ -1,0 +1,409 @@
+<html lang="en"><head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <meta charset="utf-8">
+  <link rel="stylesheet" href="style.css">
+  <title>Y4E</title>
+</head>
+<body>
+
+  <!-- NAVBAR -->
+  <img id="LogoImg" style="height:45px; position: absolute; top: 5px; left:70px;" src="pic/Y4Elogo.png">
+  <nav class="z-depth-1 white ">
+    <div class="nav-wrapper container">
+      <ul id="nav-mobile" class="right hide-on-med-and-down">
+          <li class="logged-in" style="display: none;">
+            <a href="index.html" class="brown-text" id="homepage">Home</a>
+          </li>
+          <li class="logged-in" style="display: none;">
+            <a href="#" class="brown-text modal-trigger" data-target="modal-account">Account</a>
+          </li>
+          <li class="logged-in" style="display: none;">
+            <a href="index.html" class="brown-text" id="logout">Logout</a>
+          </li>
+          <li class="logged-out" style="display: none;">
+            <a href="#" class="brown-text modal-trigger" data-target="modal-login">Login</a>
+          </li>
+          <li class="logged-out" style="display: none;">
+            <a href="#" class="brown-text modal-trigger" data-target="modal-signup">Sign up</a>
+          </li>
+      </ul>
+    </div>
+  </nav>
+
+  <!-- SIGN UP MODAL -->
+  <div id="modal-signup" class="modal">
+    <div class="modal-content">
+      <h4>Sign up</h4><br>
+      <form id="signup-form">
+        <div class="input-field">
+          <input type="email" id="signup-email" required="">
+          <label for="signup-email">Email address</label>
+        </div>
+        <div class="input-field">
+          <input type="password" id="signup-password" required="">
+          <label for="signup-password">Password</label>
+        </div>
+        <div class="input-field">
+          <input type="text" id="signup-username" required="">
+          <label for="signup-username">Username</label>
+        </div>
+        <div class="input-field">
+          <input type="text" id="signup-weight" required="">
+          <label for="signup-weight">Weight</label>
+        </div>
+        <button class="btn brown darken-3 z-depth-0">Sign up</button>
+      </form>
+    </div>
+  </div>
+
+  <!-- LOGIN MODAL -->
+  <div id="modal-login" class="modal">
+    <div class="modal-content">
+      <h4>Login</h4><br>
+      <form id="login-form">
+        <div class="input-field">
+          <input type="email" id="login-email" required="">
+          <label for="login-email">Email address</label>
+        </div>
+        <div class="input-field">
+          <input type="password" id="login-password" required="">
+          <label for="login-password">Your password</label>
+        </div>
+        <button class="btn brown darken-3 z-depth-0">Login</button>
+      </form>
+    </div>
+  </div>
+
+  <!-- ACCOUNT MODAL -->
+  <div id="modal-account" class="modal">
+    <div class="modal-content center-align">
+      <h4>Account details</h4><br>
+      <div class="account-details" ></div>
+    </div>
+  </div>
+  
+  <!-- Home Login -->
+  <li class="logged-in" style="display: none;">
+  <div class="container" style="margin-top: 40px; width: 100%;">
+    <!-- CREATE Exercise MODAL -->
+  <div id="modal-create" class="modal">
+    <div class="modal-content">
+      <h4>Add Exercise</h4><br />
+      <form id="create-form">
+        <div class="input-field">
+          <input type="date" id="daydate" required>
+          <label for="daydate">Date</label>
+        </div>
+        <div class="input-field">
+          <input type="number" id="pcalories" required></input>
+          <label for="pcalories">points</label>
+        </div>
+        <button class="btn yellow darken-2 z-depth-0">Add</button>
+      </form>
+    </div>
+  </div>
+    
+  <section class="section container" id="services">
+    <div class="row">
+        <!-- tabs -->
+        <ul class="tabs">
+          <li class="tab">
+            <a href="#ranking" class="active indigo-text text-darken-4">Ranking</a>
+          </li>
+          <li class="tab">
+            <a href="#history" class="indigo-text text-darken-4">History</a>
+          </li>
+          <li class="tab">
+            <a href="#select-yoga" class="indigo-text text-darken-4">Yoga</a>
+          </li>
+        </ul>
+
+        <div id="ranking">
+            <p class="flow-text indigo-text text-darken-4">Ranking</p>
+                <p>username:</p><p class="username" id="username" style="position:absolute; top: 241px; left: 500px"></p>
+                <p>points :</p><div class="total-burnedcal" id="total-burnedcal" style="position:absolute; top: 292px; left: 500px"></div>
+                <p>weight :</p><div class="weight" id="weight" style="position:absolute; top: 331px; left: 500px"></div>
+                
+                <table class="content-table">
+                  <thead>
+                    <tr>
+                      <th>Username</th>
+                      <th>total points</th>
+                    </tr>
+                  </thead>
+                  <tbody id="tbody1">
+                    <tr>
+                    </tr>
+                  </tbody>
+                </table>
+              
+        </div>
+
+        <div id="history">
+            <p class="flow-text indigo-text text-darken-4">History</p>
+
+              <button>
+                  <a href="#" class="grey-text modal-trigger" data-target="modal-create">Add Round</a>
+              </button>
+            
+
+                <table class="content-table2">
+                  <thead>
+                    <tr>
+                      <th>Date</th>
+                      <th>points</th>
+                    </tr>
+                  </thead>
+                  <tbody id="tbody2">
+                    <tr>
+                    </tr>
+                  </tbody>
+                </table>
+
+              <div class="container" style="padding-top: 80px">
+              </div>
+              <canvas id="myChart" width="100" height="50"></canvas> 
+        </div>
+      
+        <div id="select-yoga">
+          <!-- yoga Hatha Yoga-->
+      <div class="row">
+        <div class="col s11 m4">
+          <div class="card">
+            <div class="card-image">
+              <img src="piccard/hatha-pic.jpeg">
+            </div>
+            <div class="card-content">
+              <p>Hatha yoga is often slower moving than a Vinyasa yoga practice, but it can be challenging, stimulating, or soft, depending on the circumstances.</p>
+            </div>
+            <div class="card-action">
+              <a href="yoga.html" class="brown-text" id="Yoga2">LEARN</a>
+            </div>
+          </div>
+        </div>
+      
+
+      <!-- yoga Vinyasa Yoga-->
+        <div class="col s11 m4">
+          <div class="card">
+            <div class="card-image">
+              <img src="piccard/vinyasa-pic.jpeg">
+            </div>
+            <div class="card-content">
+              <p>Vinyasa Yoga helps to develop a more balanced body as well as prevent repetitive motion injuries that can happen if you are always doing the same thing.</p>
+            </div>
+            <div class="card-action">
+              <a href="yoga2.html" class="brown-text" id="Yoga2-2">LEARN</a>
+            </div>
+          </div>
+        </div>
+
+      <!-- yoga Iyengar Yoga-->
+        <div class="col s11 m4">
+          <div class="card">
+            <div class="card-image">
+              <img src="piccard/iyengar-pic.jpeg">
+            </div>
+            <div class="card-content">
+              <p>Iyengar is a form of hatha yoga that focuses on proper alignment and precise technique. Through slower movements and an emphasis on quality over quantity.</p>
+            </div>
+            <div class="card-action">
+              <a href="yoga3.html" class="brown-text" id="Yoga2-3">LEARN</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </li>
+        </div>
+    
+  </section>
+  </li>
+  
+  <!-- Home Not Login -->
+  <li class="logged-out" style="display: none;">
+  <div class="container" style="margin-top: 40px;">
+    <p>Not Login</p>
+  </div>
+  </li>
+  
+  
+  <script src="firebase-app.js"></script>
+  <script src="firebase-auth.js"></script>
+  <script src="firebase-firestore.js"></script>
+  <script>
+    // Initialize Firebase
+    var config = {
+      apiKey: "AIzaSyBh_vKw1eozno1VVGaedDXgTJhNljWfUvk",
+    authDomain: "yoga-data-51fbc.firebaseapp.com",
+    projectId: "yoga-data-51fbc",
+    storageBucket: "yoga-data-51fbc.appspot.com",
+    messagingSenderId: "661341190469",
+    appId: "1:661341190469:web:d99092212b6e577679e62c",
+    measurementId: "G-GMZ0T8EJ1M"
+    };
+    firebase.initializeApp(config);
+    
+    // make auth and firestore references
+    const auth = firebase.auth();
+    const db = firebase.firestore();
+
+    // update firestore settings
+    db.settings({ timestampsInSnapshots: true });
+  </script>
+  
+
+    <!-- Compiled and minified JavaScript -->
+  <script src="scripts/auth.js"></script>
+  <script src="scripts/index.js"></script>
+  <script src ="sketch.js"></script>
+  <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+  <!-- Compiled and minified CSS -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+
+  <!-- Compiled and minified JavaScript -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@2.9.3"></script>
+  <script>
+    $(document).ready(function(){
+
+      $('.sidenav').sidenav();
+      $('.materialboxed').materialbox();
+      $('.parallax').parallax();
+      $('.tabs').tabs();
+
+    });
+  </script>
+
+  <!-- Ranking Table Record -->
+  <script>
+    function SelectData (){
+      db.collection('users').orderBy("burnedcal","desc").get().then((snapshot) => {
+        snapshot.docs.forEach(doc => {
+          var name = doc.data().username;
+          var calb = doc.data().burnedcal;
+          AddItemsToTable(name,calb);
+        })
+      });
+    }
+    SelectData();
+
+    var userNo = 0;
+    function AddItemsToTable(name,calb){
+      var tbody = document.getElementById('tbody1');
+      var trow = document.createElement('tr');
+      var td1 = document.createElement('td');
+      var td2 = document.createElement('td');
+      td1.innerHTML = name;
+      td2.innerHTML = calb;
+      trow.appendChild(td1); 
+      trow.appendChild(td2);
+      tbody.appendChild(trow);
+    }    
+  </script>
+
+  <!-- Table History Exercises -->
+  <script>
+    function SelectData2 (){
+      db.collection('exercise').doc(userid).collection('round').orderBy("daydate","desc").get().then((snapshot2) => {
+        snapshot2.docs.forEach(doc => {
+          var dday = doc.data().daydate;
+          var pcal = doc.data().pcalories;
+          AddItemsToTable2(dday,pcal);
+        })
+      });
+    }
+    SelectData2();
+
+    function AddItemsToTable2(dday,pcal){
+      var tbody2 = document.getElementById('tbody2');
+      var trow2 = document.createElement('tr');
+      var td12 = document.createElement('td');
+      var td22 = document.createElement('td');
+      td12.innerHTML = dday;
+      td22.innerHTML = pcal;
+      trow2.appendChild(td12); 
+      trow2.appendChild(td22);
+      tbody2.appendChild(trow2);
+    }    
+  </script>
+
+  <!-- Chart -->
+  <script>
+    function formatDate(date) {
+    var d = new Date(date),
+        month = '' + (d.getMonth() + 1),
+        day = '' + d.getDate(),
+        year = d.getFullYear();
+
+    if (month.length < 2) 
+        month = '0' + month;
+    if (day.length < 2) 
+        day = '0' + day;
+
+    return [year, month, day].join('-');
+    }
+    //console.log(formatDate(new Date()));
+    today = formatDate(new Date());
+
+    var itemArray = [];
+    db.collection('exercise').doc(userid).collection('round').get().then((snapshot) => {
+        snapshot.docs.forEach(doc => {
+            var item = doc.data();
+            itemArray.push(item);
+            //  var pcalories = item.pcalories;
+            //  dataArray.push(pcalories);
+
+            // var daydate = item.daydate;
+            // labelsArray.push(daydate);
+        });   
+        let result = itemArray.reduce((acc, curr) => {
+            let item = acc.find(item => item.daydate === curr.daydate);
+
+            if (item) {
+              item.pcalories += curr.pcalories;
+            } else {
+              acc.push(curr);
+            }
+
+            return acc;
+          }, []);
+          //console.log(result);
+          
+          let day = [];
+          let calo = [];
+          
+          for (let i in result){
+            day.push(result[i].daydate);
+            calo.push(result[i].pcalories);
+          }
+
+          const ctx = document.getElementById('myChart').getContext('2d');
+          const xlabels =[];
+          const myChart = new Chart(ctx, {
+              type: 'bar',
+              data: {
+                  labels: day,
+                  datasets: [{
+                      label: 'points',
+                      data: calo,
+                      backgroundColor: 'rgba(232, 182, 13, 0.8)',
+                      borderColor: 'rgba(255, 255, 255, 0.2)',
+                      borderWidth: 1
+                  }]
+              },
+              options: {
+                  scales: {
+                      yAxes: [{
+                          ticks: {
+                              beginAtZero: true
+                          }
+                      }]
+                  }
+              }
+          });
+    });
+  </script>
+
+</body></html>
