@@ -168,7 +168,11 @@ function nextPose(){
     }
     localStorage.setItem("AfterBurned", JSON.stringify(burnupdated));
 
-    document.getElementById("next").style.display = 'block';
+    // document.getElementById("next").style.display = 'block';
+    $(document).ready(function(){
+      $('#modal-create').modal();
+      $('#modal-create').modal('open'); 
+   });
   }else{
     iterationCounter = 0;
     posesTargetCount = posesTargetCount + 1;
