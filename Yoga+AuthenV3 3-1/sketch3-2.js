@@ -7,7 +7,7 @@ let poseLabel = "Do Pose"
 let brain;
 let targeLabel;
 let posesTarget = ['a','b','c']
-let posesArray = ['Triangle', 'Warrior I','Downward Dog'];
+let posesArray = ['Triangle', 'Warrior I','Side'];
 var imgArray = new Array()
 var poseImage;
 var posesTargetCount;
@@ -35,7 +35,7 @@ function setup() {
   imgArray[1] = new Image();
   imgArray[1].src = 'iyengar/war1-5.jpeg';
   imgArray[2] = new Image();
-  imgArray[2].src = 'iyengar/dog-6.jpeg';
+  imgArray[2].src = 'iyengar/side-6.jpeg';
   
 
   poseCounter = 0;
