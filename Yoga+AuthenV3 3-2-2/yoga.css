@@ -1,0 +1,32 @@
+@import
+url('https:fonts.googleapis.com/css?family=Poppins&display=swap');
+
+html, body {
+  margin: 0;
+  font-family: 'Poppins', sans-serif;
+}
+
+canvas {
+  display: block;
+}
+
+h1 {
+  font-size: 75px;
+}
+
+h2 {
+  font-size: 40px;
+}
+
+h3 {
+  font-size: 60px;
+}
+
+
+/* Modal Content */
+.modal-content {
+  background-color: #fefefe;
+  margin: auto;
+  padding: 20px;
+  border: 1px solid #888;
+}
